@@ -10,18 +10,34 @@ def escalas(tonica, tonalidade):
         Tonica: Nota que sera a tonica da escala
         Tonalidade: Tonalidade da escala
 
-    >>> escalas('C','maior')
-    {'notas':['C','D','E','F','G','A','B'], 'graus':['I','II','III','IV','V','VI','VII']}
+    Returns:
+        Um dicionario com as notas da escala e os graus
 
-    >>> esalas('A','maior')
-    {'notas':['A','B','C','D','E','F','G'], 'graus':['I','II','III','IV','V','VI','VII']}
+    Raises:
+        ValueError: Caso a nota tonica não seja valida
+        KeyError:  Caso a tonalidade não exista
+
+    Examples:
+        >>> escalas('C','maior')
+        {'notas':['C','D','E','F','G','A','B'], 'graus':['I','II','III','IV','V','VI','VII']}
+
+        >>> esalas('a','maior')
+        {'notas':['A','B','C','D','E','F','G'], 'graus':['I','II','III','IV','V','VI','VII']}
     """
-    intervalos = ESCALAS[tonalidade]
-    tonica_pos = NOTAS.index(tonica)
+    tonica = tonica.upper()
+    try:
+        intervalos = ESCALAS[tonalidade]
+        tonica_pos = NOTAS.index(tonica)
+    except ValueError:
+        raise ValueError(f'Essa nota não existe, tente uma dessas  {NOTAS}')
+    except KeyError:
+        raise KeyError(
+            f'Essa escala não foi implementada, tente uma dessas {list(ESCALAS.keys())}'
+        )
     temp = []
 
     for intervalo in intervalos:
-        nota = tonica_pos + intervalo
+        nota = (tonica_pos + intervalo) % 12
         temp.append(NOTAS[intervalo])
 
-    return {'notas': temp, 'graus':['I','II','III','IV','V','VI','VII']}
+    return {'notas': temp, 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
