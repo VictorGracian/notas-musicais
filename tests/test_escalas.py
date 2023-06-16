@@ -46,7 +46,12 @@ def test_escala_nao_existe():
 
 
 @mark.parametrize(
-    'tonica, esperado', [('C', ['C', 'D', 'E', 'F', 'G', 'A', 'B'])]
+    'tonica,esperado',
+    [
+        ('C', ['C', 'D', 'E', 'F', 'G', 'A', 'B']),
+        ('C#', ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C']),
+        ('D', ['D', 'E', 'F#', 'G', 'A', 'B', 'C#']),
+    ],
 )
 def test_notas_corretas(tonica, esperado):
     resultado = escalas(tonica, 'maior')

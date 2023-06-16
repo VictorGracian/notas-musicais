@@ -7,8 +7,8 @@ edit_uri: tree/main/docs
 theme:
   name: material
   language: pt-BR
-  logo: assets\logo.png
-  favicon: assets\logo.png
+  logo: assets/logo.png
+  favicon: assets/logo.png
   
 markdown_extensions: 
   - attr_list

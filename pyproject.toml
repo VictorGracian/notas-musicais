@@ -6,8 +6,15 @@ authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 packages = [{include = "notas_musicais"}]
 
+
+[tool.poetry.scripts]
+escala = "notas_musicais.cli:app"
+
+
 [tool.poetry.dependencies]
 python = "^3.11"
+typer = "^0.9.0"
+rich = "^13.4.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -28,7 +35,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-python.path = "."
+pythonpath = "."
 addopts = "--doctest-modules"
 
 [tool.isort]

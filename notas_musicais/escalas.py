@@ -7,8 +7,8 @@ def escalas(tonica: str, tonalidade: str) -> dict[str, list[str]]:
     GERA UMA ESCALA A PARTIR DE UMA TONICA E UMA TONALIDADE
 
     Parameters:
-        Tonica: Nota que sera a tonica da escala
-        Tonalidade: Tonalidade da escala
+        tonica: Nota que sera a tonica da escala
+        tonalidade: Tonalidade da escala
 
     Returns:
         Um dicionario com as notas da escala e os graus
